@@ -30,9 +30,9 @@
 	</div>
 	</span>
   	<hr class="featurette-divider">	
-  	<div ng-repeat="project in projects">
-  		<span>
-  		<div style="background-color:#DDDDDD"; >
+  	<div class="row" ng-repeat="project in projects">
+  		
+  		<div class="col-md-2 col-sm-2 col-xs-2" style="background-color:#DDDDDD"; >
   			<h4>
   				Coordinators
   			</h4>
@@ -50,22 +50,32 @@
   				
   			
   		</div>
-
-  		<div>
-  			<h4>
+  		<h4>
   				Tasks
-  			</h4>
+  		</h4>
+  		<div ng-repeat="task in project.tasks">
 
-  			<div ng-repeat="task in project.tasks">
+  		<div class="col-md-6 col-sm-6 col-xs-6">
+  			
+
+  			<div >
   				<h5>
-  					{{task.taskName}}
+  					Task Name : {{task.taskName}}
   				</h5>
   				<!-- <p> -->
-  					{{task.taskDescription}}
+  					Description: {{task.taskDescription}}
   				<!-- </p> -->
   			</div>
   		</div>
- 		</span> 		
+
+  		<div class="col-md-4 col-sm-4 col-xs-4">
+  			
+  				Assigned To:{{task.assignedTo}}
+  			
+  		</div>
+
+  		</div>
+ 				
   	</div>	
   	
   </div>
