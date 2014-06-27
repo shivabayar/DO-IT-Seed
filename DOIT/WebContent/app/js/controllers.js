@@ -2,10 +2,10 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
-     $scope.message = "Hello This message is from View 1";
+angular.module('huPortalApp.controllers', [])
+  .controller('projectListController', ['$scope', function($scope) {
+     $scope.message = "Hello This message is from Project List";
   }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-    $scope.message = "Hello This message is from View 2";
+  .controller('projectDetailsController', ['$scope', function($scope) {
+    $scope.message = "Hello This message is from Project Details";
   }]);
