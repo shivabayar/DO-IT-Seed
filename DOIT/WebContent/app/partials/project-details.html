@@ -1,3 +1,72 @@
 <div class="jumbotron">
-  <p ng-bind="message"></p>
+  <div class=" detailsContainer" >
+  
+  	
+  	
+  	<div ng-repeat="project in projects">
+  		<div>
+  			<h5>
+  				<strong>
+  					Project ID:
+  				</strong> 
+  				{{project.projectId}}
+  			</h5>
+
+  			<h5>
+  				<strong>
+  					Project Name:
+  				</strong>
+  				{{project.projectName}}
+  			</h5>
+  		</div>
+  	</div>
+  	<span>
+  	Priority:	
+  	<div class="btn-group">
+  		<button type="button" class="btn btn-default">Show-Stopper</button>
+  		<button type="button" class="btn btn-default">High</button>
+  		<button type="button" class="btn btn-default">Medium</button>
+  		<button type="button" class="btn btn-default">Low</button>
+	</div>
+	</span>
+  	<hr class="featurette-divider">	
+  	<div ng-repeat="project in projects">
+  		<span>
+  		<div style="background-color:#DDDDDD"; >
+  			<h4>
+  				Coordinators
+  			</h4>
+  			<div class="coordinators" ng-repeat="coordinators in project.coordinators">
+  				<div>
+  					<h5>
+  						{{coordinators}}
+  					</h5>
+
+  				</div>
+  				
+  			</div>
+  			
+  					
+  				
+  			
+  		</div>
+
+  		<div>
+  			<h4>
+  				Tasks
+  			</h4>
+
+  			<div ng-repeat="task in project.tasks">
+  				<h5>
+  					{{task.taskName}}
+  				</h5>
+  				<!-- <p> -->
+  					{{task.taskDescription}}
+  				<!-- </p> -->
+  			</div>
+  		</div>
+ 		</span> 		
+  	</div>	
+  	
+  </div>
 </div>

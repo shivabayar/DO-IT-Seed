@@ -17,7 +17,28 @@
 				</th>
 			</tr>
 
-			<tr>
+			<tr ng-repeat="project in projects">
+				<td>
+					<a href="#/projects/{{project.projectId}}">{{project.projectId}}
+					</a>
+				</td>
+				
+				<td>
+					<a href="#/projects/{{project.projectId}}">{{project.projectName}}
+					</a>	
+				</td>
+				
+				<td>
+					<a href="#/{{project.projectId}}">{{project.description}}
+					</a>	
+				</td>
+				
+				<td >
+					<div ng-repeat="coordinators in project.coordinators">
+						<a href="#/{{project.projectId}}">{{coordinators}}
+						</a>	
+					</div>
+				</td>
 				
 			</tr>
 		</thead>
