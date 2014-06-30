@@ -3,28 +3,29 @@
 /* Controllers */
 
 angular.module('huPortalApp.controllers', [])
-  .controller('projectListController', ['$scope','$modal','$log', function($scope,$modal,$log) {
+  .controller('projectListController', ['$scope','$modal','$log','ProjectListJSONService', function($scope,$modal,$log,ProjectListJSONService) {
      $scope.message = "Hello This message is from Project List";
 
-     $scope.projects = [
-
-			{			
-				"projectId" : "1",
-				"projectName" : "Responsive Web",
-				"description" : "done using boot strap",
-				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"]
-
-			},
-
-			{
-				"projectId" : "2",
-				"projectName" : "Angular JS",
-				"description" : "done using angular js ",
-				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"]
-
-			}
-
-     	];
+     $scope.projects = ProjectListJSONService.list(); 
+//     $scope.projects = [
+//
+//			{			
+//				"projectId" : "1",
+//				"projectName" : "Responsive Web",
+//				"description" : "done using boot strap",
+//				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"]
+//
+//			},
+//
+//			{
+//				"projectId" : "2",
+//				"projectName" : "Angular JS",
+//				"description" : "done using angular js ",
+//				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"]
+//
+//			}
+//
+//     	];
      
      $scope.open = function (size) {
 
@@ -62,7 +63,7 @@ angular.module('huPortalApp.controllers', [])
        $scope.cancel = function () {
          $modalInstance.dismiss('cancel');
    	  };
-   	};
+     };
   }])
   .controller('projectDetailsController', ['$scope','$routeParams',  function($scope,$routeParams) {
 
