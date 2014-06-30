@@ -10,6 +10,7 @@ var huPortalApp =  angular.module(	'huPortalApp', [
   									'huPortalApp.directives',
 									'ui.bootstrap',
   									'huPortalApp.controllers'
+  									
 									]);
 
 

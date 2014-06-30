@@ -26,9 +26,10 @@ angular.module('huPortalApp.controllers', [])
 
      	];
   }])
-  .controller('projectDetailsController', ['$scope', '$routeParams', function($scope) {
+  .controller('projectDetailsController', ['$scope','$routeParams',  function($scope,$routeParams) {
 
-  	// var projId = $routeParams.projectId;
+  	// $scope.projId = $routeParams.projectId;
+  	// console.log($scope.projId);
 
     $scope.message = "Hello This message is from Project Details";
 
@@ -60,43 +61,44 @@ angular.module('huPortalApp.controllers', [])
 							]
 
     		},
-    // 		{
-    // 			"projectId" : "2",
-				// "projectName" : "Angular JS",
-				// "description" : "done using Angular js",
-				// "coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"],
-				// "tasks" : 	[
-				// 				{
-				// 					"taskName" : "Create controllers",
-				// 					"taskDescription" : "Create a home page for the project",
-				// 					"priority" : "1",
-				// 					"assignedTo" : "shiva",
-				// 					"dueDate" : 	"29/06/2014",
-				// 					"createdOn" : "27/06/2014"
-				// 				},
+    		{
+    			"projectId" : "2",
+				"projectName" : "Angular JS",
+				"description" : "done using Angular js",
+				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"],
+				"tasks" : 	[
+								{
+									"taskName" : "Create controllers",
+									"taskDescription" : "Create a home page for the project",
+									"priority" : "1",
+									"assignedTo" : "shiva",
+									"dueDate" : 	"29/06/2014",
+									"createdOn" : "27/06/2014"
+								},
 
-				// 				{
-				// 					"taskName" : "Improve UI & UX",
-				// 					"taskDescription" : "Create more pleasing UI",
-				// 					"priority" : "3",
-				// 					"assignedTo" : "sampath",
-				// 					"dueDate" : "01/07/2014",
-				// 					"createdOn" : "27/06/2014"
-				// 				}
-				// 			]
+								{
+									"taskName" : "Improve UI & UX",
+									"taskDescription" : "Create more pleasing UI",
+									"priority" : "3",
+									"assignedTo" : "sampath",
+									"dueDate" : "01/07/2014",
+									"createdOn" : "27/06/2014"
+								}
+							]
 
-    // 		}
+    		}
 
     	];
 
 
-    //finding the json by the id which i got from the url
-    // for(var i=0 ; i < $scope.projects.length; ++i)
-    // {
-    // 	if($scope.projects[i].projectId === $routeParams.projectId)
-    // 	{
-    // 		$scope.projectDetails = $scope.project[i];
-    // 	}
-    // }
+    // finding the json by the id which I got from the url
+    for(var i=0 ; i < $scope.projects.length; ++i)
+    {
+    	if($scope.projects[i].projectId == $routeParams.projectId)
+    	{
+    		$scope.projectDetails = $scope.projects[i];
+    		console.log($scope.projectDetails);
+    	}
+    }
 
   }]);
