@@ -1,0 +1,34 @@
+.filter-buttons,.coordinators-name,.task-rows{
+	margin-bottom:30px;
+}
+
+.coodrinators-heading{
+	margin-bottom:40px;
+}
+
+.status-icons{
+	margin-top:20px;
+	font-size: 40px;
+	position:relative;
+	left:7%;
+}
+
+.filter-heading{
+	margin-top:20px;
+	position:relative;
+	left:10%;
+}
+
+.filter-buttons{
+	margin-top:20px;
+}
+
+.task-rows{
+	position:relative;
+    border-bottom:1px solid white;
+}
+
+.create-button{
+	float:right;
+	
+}

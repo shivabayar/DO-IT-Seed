@@ -7,36 +7,38 @@
   			{{projectDetails.projectId}}
   		</h5>
 
-		<h5>
+		<h3>
  			<strong>
-  				Project Name:
+  				{{projectDetails.projectName}}
 			</strong>
-			{{projectDetails.projectName}}
-		</h5>
+		</h3>
 	</div>
 
-	<span>
-  		Filter By Priority:	
-	  	<div class="btn-group ">
+	<div class="filter-buttons row">
+		<div class="col-md-3 filter-heading">
+			Filter By Priority:
+		</div>		
+	  	<div class="btn-group col-md-6 filter-buttons">
   			<button type="button" class="btn btn-default" ng-click="myFilter={priority:'0'}">Show-Stopper</button>
   			<button type="button" class="btn btn-default" ng-click="myFilter={priority:'1'}">High</button>
   			<button type="button" class="btn btn-default" ng-click="myFilter={priority:'2'}">Medium</button>
   			<button type="button" class="btn btn-default" ng-click="myFilter={priority:'3'}">Low</button>
 		</div>
 			
-		<div class="btn-group ">
+		<div class="btn-group col-md-3 filter-buttons">
   			<button type="button" class="btn btn-default" ng-click="myFilter={}">Reset Filter</button>
   		</div>	
-	</span>
+	</div>
+	
+
 
 	<div class="row">
-		<div class="col-md-2"  style="background-color:#DDDDDD";> <!--coordinators-->
-			<h4>
-				Coordinators
-			</h4>			
-
+		<div class="col-md-2 "> <!--coordinators-->
+			<h3 class="coodrinators-heading">
+				<strong> <u>Coordinators</u></strong>
+			</h3>
 			<div ng-repeat="coordinator in projectDetails.coordinators">
-				<div>
+				<div class="coordinators-name">
   					<h5>
   						{{coordinator}}
   					</h5>
@@ -44,56 +46,62 @@
 			</div>
 		</div>
 
-		<div class="col-md-10" ng-repeat="task in projectDetails.tasks | filter:myFilter"> <!--tasks div-->
-			<div class="row">
-				<div class="col-md-3"> <!--glyphicons-->
-					<div ng-if="task.status == 'completed'" >
-  						<span class="glyphicon glyphicon-ok-circle" style="font-size:30px">
-  						</span>
-  					</div>
+		<div class="col-md-10" > <!--tasks div-->
+			<h3 class="task-heading">
+				<strong> <u>Tasks</u></strong>
+			</h3>
+			<div ng-repeat="task in projectDetails.tasks | filter:myFilter">
+				<div class="row task-rows">
+					<div class="col-md-3"> <!--glyphicons-->
+						<div ng-if="task.status == 'completed'" >
+	  						<span class="glyphicon glyphicon-ok-circle status-icons">
+	  						</span>
+	  						<p>Completed</p>
+	  					</div>
 
-  					<div ng-if="task.status == 'pending'">
-  						<span class="glyphicon glyphicon-ban-circle" style="font-size:30px">
-  						</span>
-  					</div>
-  							
-  					<div ng-if="task.status == 'closed'">
-  						<span class="glyphicon glyphicon-remove-circle" style="font-size:30px">
-  						</span>
-  					</div>
-  							
-  					Status
-				</div> <!--glyphicons closed-->
+	  					<div ng-if="task.status == 'pending'">
+	  						<span class="glyphicon glyphicon-ban-circle status-icons">
+	  						</span>
+	  						<p>Pending</p>
+	  					</div>
+	  							
+	  					<div ng-if="task.status == 'closed'">
+	  						<span class="glyphicon glyphicon-remove-circle status-icons">
+	  						</span>
+	  						<p>Closed</p>
+	  					</div>
+					</div> <!--glyphicons closed-->
 
-				<div class="col-md-5"> <!--tasks list-->
-					<div>
-						<strong>Task Name : </strong> {{task.taskName}}	
-					</div>
-					<div>
-						<strong>Description: </strong>{{task.taskDescription}}	
-					</div>
-				</div> <!--task list closed-->
-
-				<div class="col-md-3"> <!--assigned to-->
-					
-					<div>
-						<u><a href="">edit | </a></u>
-  						<u><a href="">complete | </a></u>
-  						<u><a href="">close</a></u>
-					</div>
-
-					<div>
+					<div class="col-md-5"> <!--tasks list-->
 						<div>
-							<strong>Assigned To : </strong>{{task.assignedTo}}
+							<strong>Task Name : </strong> {{task.taskName}}	
 						</div>
 						<div>
-							<strong>Created On : </strong>{{task.createdOn}}	
+							<strong>Description: </strong>{{task.taskDescription}}	
 						</div>
-  						<div>
-  							<strong>Due Date : </strong>{{task.dueDate}}		
-  						</div>
-					</div>
-				</div> <!--assigned to closed-->
+					</div> <!--task list closed-->
+
+					<div class="col-md-4"> <!--assigned to-->
+						
+						<div>
+							<u><a href="">edit | </a></u>
+	  						<u><a href="">complete | </a></u>
+	  						<u><a href="">close</a></u>
+						</div>
+
+						<div>
+							<div>
+								<strong>Assigned To : </strong>{{task.assignedTo}}
+							</div>
+							<div>
+								<strong>Created On : </strong>{{task.createdOn}}	
+							</div>
+	  						<div>
+	  							<strong>Due Date : </strong>{{task.dueDate}}		
+	  						</div>
+						</div>
+					</div> <!--assigned to closed-->
+				</div>
 			</div>
 		</div> <!--tasks div-->
 	</div>

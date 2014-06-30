@@ -59,6 +59,24 @@ angular.module('huPortalApp.controllers', [])
 									"dueDate" : "01/07/2014",
 									"createdOn" : "27/06/2014",
 									"status":"completed"
+								},
+								{
+									"taskName" : "Create index page",
+									"taskDescription" : "Create a home page for the project",
+									"priority" : "0",
+									"assignedTo" : "shiva",
+									"dueDate" : 	"29/06/2014",
+									"createdOn" : "27/06/2014",
+									"status":"pending"
+								},
+								{
+									"taskName" : "Create index page",
+									"taskDescription" : "Create a home page for the project",
+									"priority" : "0",
+									"assignedTo" : "shiva",
+									"dueDate" : 	"29/06/2014",
+									"createdOn" : "27/06/2014",
+									"status":"pending"
 								}
 							]
 
