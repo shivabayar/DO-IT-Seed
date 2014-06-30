@@ -39,7 +39,7 @@ angular.module('huPortalApp.controllers', [])
     			"projectId" : "1",
 				"projectName" : "Responsive Web",
 				"description" : "done using boot strap",
-				"coordinators" : ["shiva","sampath","sayeesh","ravi","masroor"],
+				"coordinators" : ["shiva","sampath","sayeesh","ravi"],
 				"tasks" : 	[
 								{
 									"taskName" : "Create index page",
@@ -47,7 +47,8 @@ angular.module('huPortalApp.controllers', [])
 									"priority" : "0",
 									"assignedTo" : "shiva",
 									"dueDate" : 	"29/06/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status":"pending"
 								},
 
 								{
@@ -56,7 +57,8 @@ angular.module('huPortalApp.controllers', [])
 									"priority" : "2",
 									"assignedTo" : "sampath",
 									"dueDate" : "01/07/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status":"completed"
 								}
 							]
 
@@ -73,7 +75,8 @@ angular.module('huPortalApp.controllers', [])
 									"priority" : "1",
 									"assignedTo" : "shiva",
 									"dueDate" : 	"29/06/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status":"closed"
 								},
 
 								{
@@ -82,7 +85,8 @@ angular.module('huPortalApp.controllers', [])
 									"priority" : "3",
 									"assignedTo" : "sampath",
 									"dueDate" : "01/07/2014",
-									"createdOn" : "27/06/2014"
+									"createdOn" : "27/06/2014",
+									"status":"pending"
 								}
 							]
 
@@ -97,7 +101,7 @@ angular.module('huPortalApp.controllers', [])
     	if($scope.projects[i].projectId == $routeParams.projectId)
     	{
     		$scope.projectDetails = $scope.projects[i];
-    		console.log($scope.projectDetails);
+    		// console.log($scope.projectDetails);
     	}
     }
 
