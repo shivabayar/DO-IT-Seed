@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('huPortalApp.controllers', [])
-  .controller('projectListController', ['$scope', function($scope) {
+  .controller('projectListController', ['$scope','$modal','$log', function($scope,$modal,$log) {
      $scope.message = "Hello This message is from Project List";
 
      $scope.projects = [
@@ -25,6 +25,44 @@ angular.module('huPortalApp.controllers', [])
 			}
 
      	];
+     
+     $scope.open = function (size) {
+
+         var modalInstance = $modal.open({
+           templateUrl: 'createProjectModal',
+           controller: ModalInstanceCtrl,
+           size: size,
+           resolve: {
+             projects: function () {
+               return $scope.projects;
+             }
+           }
+         });
+
+         modalInstance.result.then(function (selectedItem) {
+           $scope.projects.push(selectedItem);
+         }, function () {
+         });
+           $log.info('Modal dismissed at: ' + new Date());
+       };
+     
+
+     // Please note that $modalInstance represents a modal window (instance) dependency.
+     // It is not the same as the $modal service used above.
+
+     var ModalInstanceCtrl = function ($scope, $modalInstance, projects) {
+      
+       $scope.newProject = {};
+       $scope.ok = function () {
+          
+    	   $modalInstance.close({'projectId':$scope.newProject.projectId,'projectName':$scope.newProject.projectName,'description':$scope.newProject.description,
+    		   'coordinators':[$scope.newProject.coordinators]});
+       };
+
+       $scope.cancel = function () {
+         $modalInstance.dismiss('cancel');
+   	  };
+   	};
   }])
   .controller('projectDetailsController', ['$scope','$routeParams',  function($scope,$routeParams) {
 

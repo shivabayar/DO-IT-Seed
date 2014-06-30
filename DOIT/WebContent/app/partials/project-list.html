@@ -1,52 +1,76 @@
 <div class="jumbotron col-md-12 col-sm-12 col-xs-12">
-
-	<div class="btn-group create-button">
-  			<button type="button" class="btn btn-default">Create Project</button>
-  	</div>	
+	<div ng-controller='projectListController'>
+		<script type="text/ng-template" id="createProjectModal">
+			<div class="modal-header">
+				<h3 class="modal-title">Create Project</h3>
+			</div>
+			<div class="modal-body">
+            	<label class="col-md-12"> Project ID</label>
+				<div class="col-md-9" id="name">
+					<input type="text" class="form-control" id="name" placeholder=" Project Name" required="required" ng-model="newProject.projectId"/>
+				</div>
+            	<label class="col-md-12"> Project Name</label>
+				<div class="col-md-9" id="name">
+					<input type="text" class="form-control" id="name" placeholder=" Project Name" required="required" ng-model="newProject.projectName" />
+				</div>
+				<label class="col-md-12 ">Description</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" id="description" placeholder="Enter Description" multiple="multiple" ng-model="newProject.description" />
+				</div>
+				<label class="col-md-12">Add collaborators</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" name="collaborators" placeholder=" collaborators" ng-model="newProject.coordinators"/>
+				</div>
+        	</div>
+			<div class="modal-footer">
+            	<button class="btn btn-primary" ng-click="ok()">OK</button>
+            	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        	</div>
+		</script>
+ 		<button class="btn btn-default create-button" ng-click="open()">Create Project</button>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>
+						Project ID
+					</th>
+					<th>
+						Project Name
+					</th>
+					<th>
+						Description
+					</th>
+					<th>
+						Coordinators
+					</th>
+				</tr>
 	
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>
-					Project ID
-				</th>
-				<th>
-					Project Name
-				</th>
-				<th>
-					Description
-				</th>
-				<th>
-					Coordinators
-				</th>
-			</tr>
-
-			<tr ng-repeat="project in projects">
-				<td>
-					{{project.projectId}}
+				<tr ng-repeat="project in projects">
+					<td>
+						{{project.projectId}}
+						
+					</td>
 					
-				</td>
-				
-				<td>
-					<a href="#/projects/{{project.projectId}}">{{project.projectName}}
-					</a>
-				</td>
-				
-				<td>
-					{{project.description}}
-
-				</td>
-
-				<td >
-					<div ng-repeat="coordinators in project.coordinators">
-
-						{{coordinators}}
-
-					</div>
-				</td>
-
-			</tr>
-		</thead>
-	</table>
-
+					<td>
+						<a href="#/projects/{{project.projectId}}">{{project.projectName}}
+						</a>
+					</td>
+					
+					<td>
+						{{project.description}}
+	
+					</td>
+	
+					<td >
+						<div ng-repeat="coordinators in project.coordinators">
+	
+							{{coordinators}}
+	
+						</div>
+					</td>
+	
+				</tr>
+			</thead>
+		</table>
+	</div>
 </div>
